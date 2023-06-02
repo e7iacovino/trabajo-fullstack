@@ -1,0 +1,87 @@
+
+@font-face
+{
+  font-family: BEHAVIOR;
+  src: url(fonts/behavior.otf);
+}
+
+@font-face
+{
+  font-family: CHENTALLE;
+  src: url(fonts/chentalle.otf);
+}
+
+
+body
+{
+
+    background-color: #fdfdfd;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    font-family: 'Poppins', arial;
+}
+
+header
+{
+    z-index: 100;
+    width: 100vw;
+    
+    background-color: ##80b5cd;
+    height: 6vh;
+    display: flex;
+    border-bottom: #262626 solid 1px;
+    align-items: center;
+    position: fixed;
+    justify-content: space-around;
+}
+
+section
+{
+  width: 70%;
+  margin-top: 7vh;
+}
+
+{
+  transform: scale(1.1);
+}
+
+#element::-webkit-scrollbar
+{
+    display: none;
+}
+
+::-webkit-scrollbar
+{
+    display: none;
+}
+
+h1
+{
+  
+    font-family: BEHAVIOR;
+    width: 85%;
+        letter-spacing: 0.4vw;
+    text-align: center;
+    font-size: 2.6vh;
+    color: #1f1f1f;
+
+}
+
+.headerBttn
+{
+      height: 70%;
+    aspect-ratio: 1/1;
+    
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
+    display: flex;
+    background: transparent;
+    align-items: center;
+    justify-content: center;
+    border: transparent;
+}
