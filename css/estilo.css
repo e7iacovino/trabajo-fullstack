@@ -30,14 +30,13 @@ header
 {
     z-index: 100;
     width: 100vw;
-    
-    background-color: ##80b5cd;
     height: 6vh;
     display: flex;
     border-bottom: #262626 solid 1px;
     align-items: center;
     position: fixed;
-    justify-content: space-around;
+    background: linear-gradient(#164A41, #4D774E);
+    justify-content: space-between;
 }
 
 section
@@ -84,4 +83,9 @@ h1
     align-items: center;
     justify-content: center;
     border: transparent;
+}
+
+#logo
+{
+    height: 75%;
 }
