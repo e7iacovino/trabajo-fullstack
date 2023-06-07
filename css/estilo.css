@@ -15,7 +15,7 @@
 body
 {
 
-    background-color: #fdfdfd;
+    background: linear-gradient(#164A41, #9dc8);
     margin: 0;
     padding: 0;
     display: flex;
@@ -30,12 +30,12 @@ header
 {
     z-index: 100;
     width: 100vw;
-    height: 6vh;
+    height: 6.5vh;
     display: flex;
-    border-bottom: #262626 solid 1px;
+    border-bottom: transparent solid 0px;
     align-items: center;
     position: fixed;
-    background: linear-gradient(#164A41, #4D774E);
+        background: transparent;
     justify-content: space-between;
 }
 
@@ -71,21 +71,37 @@ h1
 
 }
 
-.headerBttn
+#group_of_buttons
 {
-      height: 70%;
-    aspect-ratio: 1/1;
-    
-    margin-left: 1.5vw;
-    margin-right: 1.5vw;
-    display: flex;
+    height: 52%;
     background: transparent;
-    align-items: center;
-    justify-content: center;
-    border: transparent;
+    display: flex;
+    margin-right: 3vh;
 }
+
+.bttn_header
+{
+    height: 100%; 
+        margin-left: 2vh;
+    aspect-ratio: 1/1;
+    background: transparent;
+    border: 0px transparent solid;
+}
+.icon_header
+{
+    height: 100%;
+    background: transparent;
+}
+
 
 #logo
 {
-    height: 75%;
+    height: 52%;
+    margin-left: 3vh;
+}
+
+#home
+{
+    height: 100vh; width: 100vw;
+    margin:0;
 }
