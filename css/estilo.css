@@ -11,6 +11,13 @@
   src: url(fonts/chentalle.otf);
 }
 
+@keyframes appear
+{
+    0%{opacity: 0%; transform:translateY(-5vw);}
+    100%{opacity: 100%;transform:translateY(0vw);}
+}
+
+
 
 body
 {
@@ -43,10 +50,6 @@ section
 {
   width: 70%;
   margin-top: 7vh;
-}
-
-{
-  transform: scale(1.1);
 }
 
 #element::-webkit-scrollbar
@@ -104,4 +107,75 @@ h1
 {
     height: 100vh; width: 100vw;
     margin:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#home_info
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.title
+{
+    font-family: CHENTALLE;
+    margin: -1vw;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
+.home_bttns
+{
+    height: auto;
+    
+    font-family: Inter, arial;
+    background-color: #164A41;
+    color: white;
+    padding-inline: 4%;
+    padding-block: 1%;
+    border-radius: 7%;
+    border: 0px solid transparent;
+}
+
+#bttns_group
+{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+#home_bttn_1{margin-right: 2.5%;}
+#home_bttn_2{margin-left: 2.5%;}
+
+
+
+
+@media only screen and (max-width: 768px) 
+{
+  /* For mobile phones: */
+  .title{font-size: 5vw;}
+  #home_info{align-items: center;}
+
+  .home_bttns {
+    width: 15vh;
+    font-size: 2.2vh;
+    margin-top: 2vw;
+}
+}
+
+@media only screen and (min-width: 768px)
+{
+  /* For bigger devices, as computers: */
+  .title{font-size: 3.7vw;}
+  button{cursor: pointer;}
+  #home_info{align-items: flex-end;}
+
+  .home_bttns {
+    width: 18vh;
+    margin-right: -1vw;
+    font-size: 2.7vh;
+    margin-top: 1vw;}
 }
