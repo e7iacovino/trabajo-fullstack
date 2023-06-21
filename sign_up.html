@@ -21,7 +21,7 @@
 
 <body>
 	<header id="main_header">
-		<img src="imgs/logo (2).png" id="logo">
+		<img src="imgs/logo (2).png" id="logo" onclick="window.open('index.html', '_self')">
 		<div id="group_of_buttons">
 			<button class="bttn_header">
 				<img src="imgs/icon1.png" class="icon_header">
@@ -32,20 +32,29 @@
 		</div>
 	</header> 
 
-	<section id="home">
-		<div id="home_info">
-			<p class="title">Encontrá personas</p>
-			<p class="title">Intercambiá conocimientos</p>
-			<p class="title">Aprendé y mejorá tus habilidades</p>
-			<div id="bttns_group">
-				<button class="home_bttns" id="home_bttn_1">Registrarse</button>
-				<button class="home_bttns" id="home_bttn_2">Ingresar</button>
-			</div>
-			
+	<section id="home_sign_up">
+		<div id="sign_up">
+			<form action="POST" id="sign_in_form">
+				<label  id="title_form">REGISTRARSE</label>
+				<label  id="subtitle_form" onclick="window.open('log_in.html', '_self')">o iniciar sesion</label> 
+				<div id="inputs">
+					<div class="col">
+						<label for="GET-email">Nombre completo</label>
+						<input id="GET-email" type="text" name="email">
+						<label for="GET-email">Correo electronico</label>
+						<input id="GET-email" type="text" name="email">
+					</div>
+					<div class="col">
+						<label for="GET-clave">Contraseña</label>
+						<input id="GET-clave" type="password" name="clave">
+						<label for="GET-clave_conf">Confirmar contraseña</label>
+						<input id="GET-clave_conf" type="password" name="clave_conf">
+					</div>
+				</div>
+				<button value="Save" id="submit_li">Registrarse</button>
+			</form>			
 		</div>
-		
 	</section>
-
 	<!-- <footer>
 		©2023 Emiliano Iacovino & Luisina Lavayen. Todos los derechos reservados. 
 	</footer> -->

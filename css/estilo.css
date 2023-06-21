@@ -152,7 +152,7 @@ h1
 
 #sign_in
 {
-    background-color: white;
+    background-color: #ffffff4f;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -177,7 +177,7 @@ input
     outline: none;
     font-family: Inter, arial;
     font-size: 2vh;
-
+    background: transparent;
 }
 
 label
@@ -193,8 +193,61 @@ label
     color: white;
     border: 0px solid transparent;
     border-radius: 3%;
-
+        width: 100%;
 }
+
+#title_form
+{
+text-align: center;
+    font-family: Inter, arial;
+    font-size: 3.5vh;
+}
+
+#subtitle_form
+{
+text-align: center;
+    font-family: Inter, arial;
+    font-size: 2.5vh;
+    text-decoration: underline #164A41;
+    margin-bottom: 3vh;
+    color: #164A41;
+}
+
+#ubicacion
+{
+        padding: 3%;
+    font-family: Inter, arial;
+    font-size: 2vh;
+    background-color: #164A41;
+    color: white;
+    border: 0px solid transparent;
+    border-radius: 3%;
+    width: 100%;
+}
+#home_sign_up
+{
+    width: 85%;
+    display: flex;
+    background: #ffffff4f;
+    height: 85%;
+    border-top-left-radius: 3%;
+    border-top-right-radius: 3%;
+    position: fixed;
+    align-items: center;
+    bottom: 0;
+    justify-content: center;
+}
+
+#inputs
+{
+        display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+
+
+
 @media only screen and (max-width: 768px) 
 {
   /* For mobile phones: */
@@ -206,13 +259,18 @@ label
     font-size: 2.2vh;
     margin-top: 2vw;
 }
-    
+    .col
+    {
+        display: flex;
+        flex-direction: column;
+    }
 
     #sign_in
     {
       font-size: 2.5vw;
 
     }
+      #inputs{flex-direction: column;}
 }
 
 @media only screen and (min-width: 768px)
@@ -221,13 +279,17 @@ label
   .title{font-size: 3.7vw;}
   button{cursor: pointer;}
   #home_info{align-items: flex-end;}
-
+  #inputs{flex-direction: row;}
   .home_bttns {
     width: 18vh;
     margin-right: -1vw;
     font-size: 2.7vh;
     margin-top: 1vw;}
-
+    .col
+{
+    margin-right: 5%;
+    margin-left: 5%;
+}
     #sign_in
     {
         font-size: 20px;
