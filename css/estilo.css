@@ -180,6 +180,33 @@ input
     background: transparent;
 }
 
+#aviso
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+        max-width: 70%;
+}
+
+#lbl_aviso
+{
+    text-align: center;
+    font-family: Inter, arial;
+    font-size: 2.5vh;
+}
+
+
+#bttn_aviso
+{
+    padding: 3%;
+    font-family: Inter, arial;   
+        font-size: 2vh; 
+        background-color: #164A41;
+    color: white;
+    border: 0px solid transparent;
+    border-radius: 3%;
+        width: 100%;
+}
 label
 {
     font-weight: bold;
@@ -245,9 +272,73 @@ text-align: center;
     justify-content: space-evenly;
 }
 
+#perfil
+{
+    display: none;
+    justify-content: space-between;
+    max-width: 80%;
+    flex-direction: column;
+    padding: 5%;
+    min-width: 40%;
+    min-height: 40%;
+    max-height: 65%;
+    background: #ffffff4f;
+    border-radius: 5%;
+    text-align: center;
+    font-family: Inter, arial;
+    
+}
+
+#perfil_datos
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bttn_perfil
+{
+    background: transparent;
+    max-height: 7vh;
+    aspect-ratio: 1/1 !important;
+    border: 0px transparent solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#perfil_bttns
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon_perfil
+{
+    height: 100%;
+}
 
 
+#perfil_nombre
+{
+    font-size: 3.5vh;
+    margin: 0;
+}
 
+#perfil_ubicacion
+{
+    margin: 0;
+}
+
+#perfil_imagen
+{
+    max-height: 15vh;
+    max-width: 15vh;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 3%;
+}
+    
 @media only screen and (max-width: 768px) 
 {
   /* For mobile phones: */

@@ -15,6 +15,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&display=swap" rel="stylesheet">
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script type="text/javascript" src="js/main_win.js"></script>
 	<script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
 
 </head>
@@ -33,16 +34,26 @@
 	</header> 
 
 	<section id="home">
-		<div id="sign_in">
-			<form action="POST" id="sign_in_form">
-				<label  id="title_form">INICIAR SESIÓN</label>
-				<label  id="subtitle_form" onclick="window.open('sign_up.html', '_self')">o registrarse</label> 
-			 	<label for="GET-email">Correo electronico</label>
-			 	<input id="GET-email" type="text" name="email">
-			 	<label for="GET-clave">Contraseña</label>
-			 	<input id="GET-clave" type="password" name="clave">
-			 	<button value="Save" id="submit_li">Entrar</button>
-			</form>			
+		<div id="aviso">
+			<p id="lbl_aviso">Para mostrar resultados en su área,<br>autorice el acceso a su ubicación.</p>
+			<button id="bttn_aviso" onclick="auth_loc();">Autorizar ubicación</button>
+		</div>
+		<div id="perfil">
+			<div id="perfil_datos">
+				<img src="imgs/pfp.jpg">
+				<p id="perfil_nombre">Emiliano Iacovino</p>
+				<p id="perfil_ubicacion">Villa Carlos Paz X5152</p>
+				<p id="perfil_habilidades">Programación, inglés, francés, mandarín, literatura clásica, informacion, TICs</p>
+			</div>
+			
+			<div id="perfil_bttns">
+				<button class="bttn_perfil">
+					<img src="imgs/quitar.png" class="icon_perfil">
+				</button>
+				<button class="bttn_perfil">
+					<img src="imgs/agregar.png" class="icon_perfil">
+				</button>
+			</div>
 		</div>
 	</section>
 
