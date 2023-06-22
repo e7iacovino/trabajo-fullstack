@@ -34,27 +34,22 @@
 	</header> 
 
 	<section id="home">
-		<div id="aviso">
-			<p id="lbl_aviso">Para mostrar resultados en su área,<br>autorice el acceso a su ubicación.</p>
-			<button id="bttn_aviso" onclick="auth_loc();">Autorizar ubicación</button>
-		</div>
-		<div id="perfil">
-			<div id="perfil_datos">
-				<img src="imgs/pfp.jpg">
-				<p id="perfil_nombre">Emiliano Iacovino</p>
-				<p id="perfil_ubicacion">Villa Carlos Paz X5152</p>
-				<p id="perfil_habilidades">Programación, inglés, francés, mandarín, literatura clásica, informacion, TICs</p>
+		<div id="account_div">
+			<div id="inputs">
+			<div class="col">
+				<label for="GET-email">Nombre completo</label>
+				<input id="GET-email" type="text" name="email">
+				<label for="GET-email">Correo electronico</label>
+				<input id="GET-email" type="text" name="email">
 			</div>
-			
-			<div id="perfil_bttns">
-				<button class="bttn_perfil">
-					<img src="imgs/quitar.png" class="icon_perfil">
-				</button>
-				<button class="bttn_perfil">
-					<img src="imgs/agregar.png" class="icon_perfil">
-				</button>
+			<div class="col">
+				<label for="GET-info">Descripción y habilidades</label>
+				<textarea id="GET-info" type="password" name="clave"></textarea> 
 			</div>
 		</div>
+		<button value="Save" id="submit_li">Guardar datos</button>
+		</div>
+		
 	</section>
 
 	<!-- <footer>
