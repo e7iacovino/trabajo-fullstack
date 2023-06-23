@@ -126,6 +126,7 @@ h1
     text-align: center;
     font-weight: bold;
     color: white;
+    opacity: 0%;
 }
 
 .home_bttns
@@ -214,6 +215,19 @@ label
 #submit_li
 {
     padding: 3%;
+    font-family: Inter, arial;   
+        font-size: 2vh; 
+        background-color: #164A41;
+    color: white;
+    border: 0px solid transparent;
+    border-radius: 3%;
+        width: 100%;
+}
+
+#submit_li_0
+{
+    padding: 3%;
+    margin-bottom: 3%;
     font-family: Inter, arial;   
         font-size: 2vh; 
         background-color: #164A41;
