@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Transacción</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keyboards" content="habilidad, intercambio, aplicación, crecimiento">
+	<meta name="description" content="Un sitio web para intercambiar habilidades con otras personas del área.">
+	<meta name="author" content="Emiliano Iacovino, Luisina Lavayen">
+	<meta name="robots" content="index">
+	<link rel="icon" href="imgs/p3.ico">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&display=swap" rel="stylesheet">
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+
+</head>
+
+<body>
+	<header id="main_header">
+		<img src="imgs/logo (2).png" id="logo" onclick="window.open('index.html', '_self')">
+		<div id="group_of_buttons">
+			<button class="bttn_header">
+				<img src="imgs/icon1.png" class="icon_header">
+			</button>
+			<button class="bttn_header" onclick="window.open('my_account.html', '_self')">
+				<img src="imgs/icon2.png" class="icon_header">
+			</button>
+		</div>
+	</header> 
+
+	<section id="home">
+		<div id="home_info">
+			
+			<p class="title" id="p1">Encontrá personas</p>
+			<p class="title" id="p2">Intercambiá conocimientos</p>
+			<p class="title" id="p3">Aprendé y mejorá tus habilidades</p>
+			<div id="bttns_group">
+				<button class="home_bttns" id="home_bttn_1" onclick="window.open('sign_up.html', '_self')">Registrarse</button>
+				<button class="home_bttns" id="home_bttn_2" onclick="window.open('log_in.html', '_self')">Ingresar</button>
+			</div>
+			
+		</div>
+		
+	</section>
+
+	<!-- <footer>
+		©2023 Emiliano Iacovino & Luisina Lavayen. Todos los derechos reservados. 
+	</footer> -->
+</body>
+</html>
