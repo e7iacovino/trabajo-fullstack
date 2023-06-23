@@ -34,14 +34,14 @@
 
 	<section id="home">
 		<div id="sign_in">
-			<form action="POST" id="sign_in_form">
+			<form action="signup.php" method="post" id="sign_in_form">
 				<label  id="title_form">INICIAR SESIÓN</label>
 				<label  id="subtitle_form" onclick="window.open('sign_up.html', '_self')">o registrarse</label> 
-			 	<label for="GET-email">Correo electronico</label>
-			 	<input id="GET-email" type="text" name="email">
+			 	<label for="GET-email">Usuario</label>
+			 	<input id="GET-email" type="text" name="user-name">
 			 	<label for="GET-clave">Contraseña</label>
-			 	<input id="GET-clave" type="password" name="clave">
-			 	<button value="Save" id="submit_li">Entrar</button>
+			 	<input id="GET-clave" type="password" name="user-pass">
+			 	<input type="submit" name="login-btn" class="btn" value="Ingresar" id="submit_li">
 			</form>			
 		</div>
 	</section>

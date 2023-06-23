@@ -39,19 +39,17 @@
 				<label  id="subtitle_form" onclick="window.open('log_in.html', '_self')">o iniciar sesion</label> 
 				<div id="inputs">
 					<div class="col">
-						<label for="GET-email">Nombre completo</label>
-						<input id="GET-email" type="text" name="email">
+						<label for="GET-email">Nombre de Usuario</label>
+						<input id="GET-email"  type="text" name="user-name">
 						<label for="GET-email">Correo electronico</label>
-						<input id="GET-email" type="text" name="email">
+						<input id="GET-email" type="email" name="user-email">
 					</div>
 					<div class="col">
 						<label for="GET-clave">Contraseña</label>
-						<input id="GET-clave" type="password" name="clave">
-						<label for="GET-clave_conf">Confirmar contraseña</label>
-						<input id="GET-clave_conf" type="password" name="clave_conf">
+						<input id="GET-clave" type="password" name="user-pass">
 					</div>
 				</div>
-				<button value="Save" id="submit_li">Registrarse</button>
+				<input id="submit_li" type="submit" name="signup-btn" class="btn">
 			</form>			
 		</div>
 	</section>
