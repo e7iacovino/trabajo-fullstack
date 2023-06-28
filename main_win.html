@@ -1,3 +1,19 @@
+<?php 
+    require_once 'source/session.php';
+    require_once 'source/db_connect.php';
+
+$id = $_SESSION['id'];
+$con = mysqli_connect("127.0.0.1", "root", "", "transaccion");
+
+$sql="SELECT * FROM users WHERE id='$id'";
+$query=mysqli_query($con, $sql);
+
+$row=mysqli_fetch_array($query);
+
+if($id == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
+            header('location: index.html');
+        }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,17 +33,18 @@
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script type="text/javascript" src="js/main_win.js"></script>
 	<script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
-
+	
 </head>
 
 <body>
+
 	<header id="main_header">
 		<img src="imgs/logo (2).png" id="logo" onclick="window.open('index.html', '_self')">
 		<div id="group_of_buttons">
 			<button class="bttn_header">
 				<img src="imgs/icon1.png" class="icon_header">
 			</button>
-			<button class="bttn_header" onclick="window.open('my_account.html', '_self')">
+			<button class="bttn_header" onclick="window.open('actualizar.php', '_self')">
 				<img src="imgs/icon2.png" class="icon_header">
 			</button>
 		</div>
@@ -56,6 +73,7 @@
 			</div>
 		</div>
 	</section>
+
 
 	<!-- <footer>
 		©2023 Emiliano Iacovino & Luisina Lavayen. Todos los derechos reservados. 

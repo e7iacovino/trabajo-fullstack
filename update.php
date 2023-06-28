@@ -1,54 +1,75 @@
 <?php
 
-include("conexion.php");
-$con=conectar();
 
-$ID_SOCIO=$_POST['ID_SOCIO'];
-$BOLSON=$_POST['BOLSON'];
-$AYP=$_POST['AYP'];
-$EDAD=$_POST['EDAD'];
-$DNI=$_POST['DNI'];
-$FC=$_POST['FC'];
-$NACIONALIDAD=$_POST['NACIONALIDAD'];
-$EC=$_POST['EC'];
-$TELEFONO=$_POST['TELEFONO'];
-$DOMICILIO=$_POST['DOMICILIO'];
-$CP=$_POST['CP'];
-$LOCALIDAD=$_POST['LOCALIDAD'];
-$FI=$_POST['FI'];
-$JUBILADO=$_POST['JUBILADO'];
-$PENSIONADO=$_POST['PENSIONADO'];
-$ADHERENTE=$_POST['ADHERENTE'];
-$BENEFICIO=$_POST['BENEFICIO'];
-$PM=$_POST['PM'];
-$UM=$_POST['UM'];
-$OBSERVACIONES=$_POST['OBSERVACIONES'];
+    require_once 'source/session.php';
+    require_once 'source/db_connect.php';
 
+if(isset($_POST["delete"])) 
+{
+	$id = $_SESSION['id'];
+	$con = mysqli_connect("127.0.0.1", "root", "", "transaccion");
+	$sql = "DELETE FROM users WHERE id = '$id'";
+	$result = mysqli_query($con, $sql);
+	if (ini_get("session.use_cookies")) {
+    $params = session_get_cookie_params();
+    setcookie(session_name(), '', time() - 42000,
+        $params["path"], $params["domain"],
+        $params["secure"], $params["httponly"]
+    );
+    Header("Location: index.html");
+}}
+else
+{
+if(isset($_POST["close-session"])) 
+{
+	if (ini_get("session.use_cookies")) {
+    $params = session_get_cookie_params();
+    setcookie(session_name(), '', time() - 42000,
+        $params["path"], $params["domain"],
+        $params["secure"], $params["httponly"]
+    );
+    Header("Location: index.html");
+}
 
-// $ID_CLIENTE=$_POST['ID_CLIENTE'];
-// $fecha=$_POST['fecha'];
-// $dominio=$_POST['dominio'];
-// $producto=$_POST['producto'];
-// $KM=$_POST['KM'];
-// $F_ACEITE=$_POST['F_ACEITE'];
-// $F_AIRE=$_POST['F_AIRE'];
-// $F_COMB=$_POST['F_COMB'];
-// $F_AA=$_POST['F_AA'];
-// $niveles=$_POST['niveles'];
-// $aditivo=$_POST['aditivo'];
-// $engrase=$_POST['engrase'];
-// $proximo=$_POST['proximo'];
-// $observaciones=$_POST['observaciones'];
+// Finalmente, destruir la sesión.
+session_destroy();
+}
+else
+{
+$id = $_SESSION['id'];
+$con = mysqli_connect("127.0.0.1", "root", "", "transaccion");
 
- // Socio Nº=$ID_SOCIO,Bolson=$BOLSON, Apellido y nombre=$AYP, Edad=$EDAD, Fecha de Nac.=$FC, Nacionalidad=$NACIONALIDAD, Estado Civil=$EC, Telefono=$TELEFONO, Domicilio=$DOMICILIO, C_P=$CP, Localidad=$LOCALIDAD, Fecha de ingreso=$FI,Jubilado=$JUBILADO,Pensionado=$PENSIONADO,Adherente=$ADHERENTE,Beneficio$BENEFICIO,$PM,$UM,$OBSERVACIONES
+$sql="SELECT * FROM users WHERE id='$id'";
+$query=mysqli_query($con, $sql);
 
-$sql="UPDATE cliente SET  BOLSON='$BOLSON', AYP='$AYP', EDAD='$EDAD', DNI='$DNI', FC='$FC', NACIONALIDAD='$NACIONALIDAD', EC='$EC', TELEFONO='$TELEFONO', DOMICILIO='$DOMICILIO', CP='$CP', LOCALIDAD='$LOCALIDAD', FI='$FI',JUBILADO='$JUBILADO',PENSIONADO='$PENSIONADO',ADHERENTE='$ADHERENTE',BENEFICIO='$BENEFICIO',PM='$PM',UM='$UM', OBSERVACIONES='$OBSERVACIONES' WHERE ID_SOCIO='$ID_SOCIO'";
+$row=mysqli_fetch_array($query);
 
-// $sql="UPDATE cliente SET  fecha='$fecha',dominio='$dominio', producto='$producto',KM='$KM',F_ACEITE='$F_ACEITE',F_AIRE='$F_AIRE',F_COMB='$F_COMB',F_AA='$F_AA',niveles='$niveles', aditivo='$aditivo', engrase='$engrase',proximo='$proximo',observaciones='$observaciones' WHERE ID_CLIENTE='$ID_CLIENTE'";
+$USERNAME=$_POST['user-name'];
+$EMAIL=$_POST['user-email'];
+$HABILIDADES=$_POST['user-info'];
+$PASSWORD=$_POST['user-pass'];
+$hashed_password = password_hash($PASSWORD, PASSWORD_DEFAULT);
 
-$query=mysqli_query($con,$sql);
+//$sql="UPDATE users SET  user-pass='$PASSWORD', user-name='$USERNAME', email='$EMAIL', habilidades='$HABILIDADES' WHERE id='$id'";
+if ($USERNAME=="" or $EMAIL=="") {
+	print("Campos incompletos");
+}
+else
+{
+	if($PASSWORD=="")
+	{
+		$sql="UPDATE users SET username='$USERNAME', email='$EMAIL', habilidades='$HABILIDADES' WHERE id='$id'";
+	}
+	else
+	{
+		$sql="UPDATE users SET username='$USERNAME', email='$EMAIL', habilidades='$HABILIDADES', password='$hashed_password' WHERE id='$id'";
+	}
+	$query=mysqli_query($con,$sql);
 
     if($query){
-        Header("Location: cliente.php");
+        Header("Location: main_win.html");
     }
+}
+}}
+
 ?>

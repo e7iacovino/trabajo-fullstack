@@ -1,57 +1,73 @@
 <?php 
-    include("conexion.php");
-    $con=conectar();
+    require_once 'source/session.php';
+    require_once 'source/db_connect.php';
 
-$id = $_GET['id'];
+$id = $_SESSION['id'];
+$con = mysqli_connect("127.0.0.1", "root", "", "transaccion");
 
-$sql="SELECT * FROM cliente WHERE ID_SOCIO='$id'";
-$query=mysqli_query($con,$sql);
+$sql="SELECT * FROM users WHERE id='$id'";
+$query=mysqli_query($con, $sql);
 
 $row=mysqli_fetch_array($query);
+
+if($id == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
+            header('location: index.html');
+        }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
-        <title>Actualizar</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        
-    </head>
-    <body>
-                <div class="container mt-5">
-                    <form action="update.php" method="POST">
-                    
-                                <input type="hidden" name="SOCIO_Nº" value="<?php echo $row['ID_SOCIO']  ?>">
-                                
-                                <input type="text" class="form-control mb-3" name="ID_SOCIO" placeholder="SOCIO_Nº" value="<?php echo $row['ID_SOCIO']  ?>">
-                                <input type="text" class="form-control mb-3" name="BOLSON" placeholder="BOLSON" value="<?php echo $row['BOLSON']  ?>">
-                                <input type="text" class="form-control mb-3" name="AYP" placeholder="APELLIDO Y NOMBRE" value="<?php echo $row['AYP']  ?>">
-                                <input type="text" class="form-control mb-3" name="EDAD" placeholder="EDAD" value="<?php echo $row['EDAD']  ?>">
-                                <input type="text" class="form-control mb-3" name="DNI" placeholder="DNI" value="<?php echo $row['DNI']  ?>">
-                                <input type="text" class="form-control mb-3" name="FC" placeholder="FECHA NAC." value="<?php echo $row['FC']  ?>">
-                                <input type="text" class="form-control mb-3" name="NACIONALIDAD" placeholder="NACIONALIDAD" value="<?php echo $row['NACIONALIDAD']  ?>">
-                                <input type="text" class="form-control mb-3" name="EC" placeholder="ESTADO CIVIL" value="<?php echo $row['EC']  ?>">
-                                <input type="text" class="form-control mb-3" name="TELEFONO" placeholder="TELEFONO" value="<?php echo $row['TELEFONO']  ?>">
-                                <input type="text" class="form-control mb-3" name="DOMICILIO" placeholder="DOMICILIO" value="<?php echo $row['DOMICILIO']  ?>">
-                                <input type="text" class="form-control mb-3" name="CP" placeholder="CODIGO POSTAL" value="<?php echo $row['CP']  ?>">
-                                <input type="text" class="form-control mb-3" name="LOCALIDAD" placeholder="LOCALIDAD" value="<?php echo $row['LOCALIDAD']  ?>">
-                                <input type="text" class="form-control mb-3" name="FI" placeholder="FECHA DE INGRESO" value="FI" value="<?php echo $row['FI']  ?>">
-                                <input type="text" class="form-control mb-3" name="JUBILADO" placeholder="JUBILADO" value="<?php echo $row['JUBILADO']  ?>">
-                                <input type="text" class="form-control mb-3" name="ADHERENTE" placeholder="ADHERENTE" value="<?php echo $row['ADHERENTE']  ?>">
-                                <input type="text" class="form-control mb-3" name="PENSIONADO" placeholder="PENSIONADO" value="<?php echo $row['PENSIONADO']  ?>">
-                                <input type="text" class="form-control mb-3" name="BENEFICIO" placeholder="BENEFICIO" value="<?php echo $row['BENEFICIO']  ?>">
-                                <input type="text" class="form-control mb-3" name="PM" placeholder="PRIMER MES" value="<?php echo $row['PM']  ?>">
-                                <input type="text" class="form-control mb-3" name="UM" placeholder="ULTIMO MES" value="<?php echo $row['UM']  ?>">
-                                <input type="text" class="form-control mb-3" name="OBSERVACIONES" placeholder="OBSERVACIONES" value="<?php echo $row['OBSERVACIONES']  ?>">
+<html>
+<head>
+    <title>Transacción</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keyboards" content="habilidad, intercambio, aplicación, crecimiento">
+    <meta name="description" content="Un sitio web para intercambiar habilidades con otras personas del área.">
+    <meta name="author" content="Emiliano Iacovino, Luisina Lavayen">
+    <meta name="robots" content="index">
+    <link rel="icon" href="imgs/p3.ico">
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="js/main_win.js"></script>
+    <script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
 
-                                
-                            <input type="submit" class="btn btn-primary btn-block" value="Actualizar">
-                    </form>
+<body>
+    <header id="main_header">
+        <img src="imgs/logo (2).png" id="logo" onclick="window.open('index.html', '_self')">
+        <div id="group_of_buttons">
+            <button class="bttn_header">
+                <img src="imgs/icon1.png" class="icon_header">
+            </button>
+            <button class="bttn_header" onclick="window.open('actualizar.php', '_self')">
+                <img src="imgs/icon2.png" class="icon_header">
+            </button>
+        </div>
+    </header> 
+
+    <section id="home">
+        <div class="container mt-5">
+            <form action="update.php" method="POST">
+                        <label  id="title_form">Mi cuenta</label>
+                        <input type="text" class="form-control mb-3" name="user-name" placeholder="Nombre de usuario" value="<?php echo $row['username']  ?>">
+                        <input type="text" class="form-control mb-3" name="user-email" placeholder="E-mail" value="<?php echo $row['email']  ?>">
+                        <input type="text" class="form-control mb-3" name="user-info" placeholder="Descripción y habilidades" value="<?php echo $row['habilidades']  ?>">
+                        <input type="password" class="form-control mb-3" name="user-pass" placeholder="Contraseña" value="">
+                    <input type="submit" class="btn btn-primary btn-block" value="Actualizar">
+                    <input type="submit" class="btn btn-primary btn-block" value="Cerrar Sesión" name="close-session">
+                    <input type="submit" class="btn btn-primary btn-block" value="Eliminar cuenta" name="delete">
                     
-                </div>
-    </body>
+            </form>
+        </div>      
+    </section>
+
+    <!-- <footer>
+        ©2023 Emiliano Iacovino & Luisina Lavayen. Todos los derechos reservados. 
+    </footer> -->
+</body>
 </html>

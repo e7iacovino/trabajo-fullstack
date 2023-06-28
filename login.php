@@ -21,15 +21,15 @@ if(isset($_POST['login-btn'])) {
         if(password_verify($password, $hashed_password)) {
           $_SESSION['id'] = $id;
           $_SESSION['username'] = $username;
-          header('location: dashboard.php');
+          header('location: main_win.html');
         }
         else {
-          echo "Error: Invalid username or password";
+          //echo "Error: Invalid username or password";
         }
       }
     }
     catch (PDOException $e) {
-      echo "Error: " . $e->getMessage();
+      //echo "Error: " . $e->getMessage();
     }
 
 }
