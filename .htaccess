@@ -1,1 +1,3 @@
-AddType application/x-httpd-php .html
+<FilesMatch "\.html$">
+ForceType application/x-httpd-php
+</FilesMatch>

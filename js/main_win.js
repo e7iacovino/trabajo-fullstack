@@ -1,8 +1,8 @@
-function auth_loc()
+/*function auth_loc()
 {
   document.getElementById("aviso").style.display="none";
-                      document.getElementById("perfil").style.display="flex";
-	/*var postcode, ciudad;
+  document.getElementById("perfil").style.display="flex";
+	var postcode, ciudad;
       var script = document.createElement('script');
       script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
       document.getElementsByTagName('head')[0].appendChild(script);
@@ -29,7 +29,7 @@ function auth_loc()
                     });
           }
         );}
-      }*/
+      }
 
 }
-	  
+	  */

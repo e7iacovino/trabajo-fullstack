@@ -21,7 +21,7 @@ if(isset($_POST['login-btn'])) {
         if(password_verify($password, $hashed_password)) {
           $_SESSION['id'] = $id;
           $_SESSION['username'] = $username;
-          header('location: main_win.html');
+          header('location: main_win.php');
         }
         else {
           //echo "Error: Invalid username or password";

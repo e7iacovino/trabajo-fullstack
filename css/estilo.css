@@ -288,7 +288,7 @@ text-align: center;
 
 #perfil
 {
-    display: none;
+    display: flex;
     justify-content: space-between;
     max-width: 80%;
     flex-direction: column;
@@ -368,6 +368,18 @@ text-align: center;
         background: transparent;
         height: 10vh;
 }
+
+footer
+{
+    text-align: center;
+        font-family: 'Inter', arial;
+        font-size: 1.6vh;
+        background-color: #164A41;
+        width: 100%;
+        padding: 1%;
+        color: white;
+}
+
 @media only screen and (max-width: 768px) 
 {
   /* For mobile phones: */

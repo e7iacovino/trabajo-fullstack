@@ -67,7 +67,7 @@ else
 	$query=mysqli_query($con,$sql);
 
     if($query){
-        Header("Location: main_win.html");
+        Header("Location: main_win.php");
     }
 }
 }}
