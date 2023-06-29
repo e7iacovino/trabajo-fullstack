@@ -15,14 +15,14 @@ if($id == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE)
 	header('location: index.html');
 }
 
-//error_reporting(0);
+error_reporting(0);
 if($_POST['num'])
 {
 	if(isset($_POST['match-true']))
 	{
 		$answer=1;
 	}
-	else
+	if(isset($_POST['match-false']))
 	{
 		$answer=0;
 	}
@@ -33,21 +33,44 @@ if($_POST['num'])
 	{
 		$id_a=$i;
 		$id_b=$id;
-		$mine="b";
+		$mine='b';
 	}
 	else
 	{
 		$id_a=$id;
 		$id_b=$i;
-		$mine="a";
+		$mine='a';
 	}
 
-	
 
 	$sql="SELECT * FROM coincidencia WHERE ID_A='$id_a' AND ID_B='$id_b'";
 	$result=mysqli_query($con,$sql);
 	$row=mysqli_fetch_array($result);
-	if ($row==TRUE)
+	if ($row!=TRUE) //si no existe
+	{
+		if($mine=='a')
+		{
+			$matcha=$answer; 
+			$matchb=0;
+		}
+		else
+		{
+			$matcha=0;
+			$matchb=$answer;
+		}
+		try {
+		  $SQLInsert = "INSERT INTO coincidencia (ID_A, ID_B)
+		               VALUES (:id_a, :id_b)";
+
+		  $statement = $conn->prepare($SQLInsert);
+		  $statement->execute(array(':id_a' => $id_a, ':id_b' => $id_b));
+
+		}
+		catch (PDOException $e) {
+		  echo "Error: " . $e->getMessage();
+		}
+	}
+	if($answer==1)
 	{
 		if($mine=='a')
 		{
@@ -66,34 +89,9 @@ if($_POST['num'])
 			}
 		}
 		$query=mysqli_query($con,$sql);
-
 	}
-	else
-	{
-		if($mine=="a")
-		{
-			$matcha=$answer; 
-			$matchb=0;
-		}
-		else
-		{
-			$matcha=0;
-			$matchb=$answer;
-		}
-
-		try {
-		  $SQLInsert = "INSERT INTO coincidencia (ID_A, ID_B, MATCHA, MATCHB)
-		               VALUES (:id_a, :id_b, :matcha, :matchb)";
-
-		  $statement = $conn->prepare($SQLInsert);
-		  $statement->execute(array(':id_a' => $id_a, ':id_b' => $id_b, ':matcha' => $matcha, ':matchb' => $matchb));
-
-		}
-		catch (PDOException $e) {
-		  echo "Error: " . $e->getMessage();
-		}
-	}
-
+	
+	
 	$i=$i+1;
 }
 else
