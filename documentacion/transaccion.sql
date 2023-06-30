@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-06-2023 a las 15:04:03
+-- Tiempo de generación: 30-06-2023 a las 21:01:29
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.1.17
 
@@ -32,10 +32,6 @@ CREATE TABLE `areas` (
   `CIUDAD` varchar(45) NOT NULL,
   `DEPARTAMENTO` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- RELACIONES PARA LA TABLA `areas`:
---
 
 --
 -- Volcado de datos para la tabla `areas`
@@ -579,10 +575,6 @@ CREATE TABLE `coincidencia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- RELACIONES PARA LA TABLA `coincidencia`:
---
-
---
 -- Volcado de datos para la tabla `coincidencia`
 --
 
@@ -608,7 +600,21 @@ INSERT INTO `coincidencia` (`ID_COINCIDENCIA`, `ID_A`, `ID_B`, `MATCHA`, `MATCHB
 (27, 1, 19, b'1', b'0'),
 (28, 1, 20, b'1', b'0'),
 (29, 1, 21, b'1', b'0'),
-(30, 1, 22, b'1', b'0');
+(30, 1, 22, b'1', b'0'),
+(31, 2, 27, b'1', b'1'),
+(32, 5, 27, b'1', b'1'),
+(33, 19, 27, b'1', b'1'),
+(34, 1, 25, b'0', b'0'),
+(35, 3, 25, b'0', b'0'),
+(36, 20, 25, b'0', b'0'),
+(37, 1, 26, b'0', b'0'),
+(38, 3, 26, b'0', b'0'),
+(39, 20, 26, b'0', b'0'),
+(40, 1, 27, b'0', b'0'),
+(41, 3, 27, b'0', b'0'),
+(42, 20, 27, b'0', b'0'),
+(43, 1, 28, b'0', b'0'),
+(44, 2, 28, b'0', b'0');
 
 -- --------------------------------------------------------
 
@@ -620,10 +626,6 @@ CREATE TABLE `habilidades` (
   `ID` int(11) NOT NULL,
   `NOMBRE` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- RELACIONES PARA LA TABLA `habilidades`:
---
 
 --
 -- Volcado de datos para la tabla `habilidades`
@@ -662,24 +664,21 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- RELACIONES PARA LA TABLA `users`:
---
-
---
 -- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `to_date`, `habilidades`) VALUES
-(1, 'lulilavayen', '$2y$10$d8F.YfIXIPm6empjxIYyx.rk65hUiMpkPdjk.U4p5agERwIMg9Z5y', 'luisina@gmail.com', '2023-06-29 12:56:44', ''),
-(2, 'malena', '$2y$10$N.x3n3MCLLznmMuSyo9m9uGazDWqfkPcaMuFbFPXnCobaJxp210Qu', 'malena@gmail.com', '2023-06-29 12:57:00', ''),
-(3, 'lucas', '$2y$10$mSKvdqUApUo5N./f2CP6k.WRRONuToc2SqJYV5zvnmBFGCY61sWMe', 'lucas@gmail.com', '2023-06-29 12:57:10', ''),
-(4, 'emiliano', '$2y$10$5b9YMkzg.hN8JBuJNSLMTu2nax2DtcuuAmXwX2XSWLDvmj9FLIfkW', 'emilianoiaco@gmail.com', '2023-06-29 12:57:24', ''),
-(5, 'locati', '$2y$10$KdhWvV9kAiyOvjj11FqUB.YxEfcPc8kPty/6ZYZM4DwMRFcBGdRQ.', 'locati@gmail.com', '2023-06-29 12:57:34', ''),
-(19, 'lanadelrey', '$2y$10$I7D7eSb/ktddxjWdsBZsBu3UFSTpIOTOBzCyIT8ZAbg3SzrUNUoyS', 'lanadelrey@gmail.com', '2023-06-29 12:58:25', ''),
-(20, 'kurtcobain', '$2y$10$SVOC0YhOtTT.KbULnaT92ufexUukyI5KfHowtzPWC109sUwOuKrua', 'kurtcobain@gmail.com', '2023-06-29 12:58:39', ''),
-(21, 'billiejoe', '$2y$10$HUoNnIJYUneM5ZfWYMYNFuBL5rfZZwMs5b.kYMiqP5123Gm4fUnzS', 'billiejoe@gmail.com', '2023-06-29 12:58:53', ''),
-(22, 'pizarnik', '$2y$10$iE/6NnL2FrsaD2vS1K6tauROgcn10arAAwMk6Csz4AwhuEBtMbfZG', 'pizarnik@gmail.com', '2023-06-29 12:59:53', ''),
-(23, 'luis', '$2y$10$4CCWuHWHc1DxCIL1UoSjYuoIROAo4CZrJb21oKFhxM0FOaWM8AV96', 'benji@gmail.com', '2023-06-29 14:44:35', 'se bailar y cantar');
+(1, 'lulilavayen', '$2y$10$d8F.YfIXIPm6empjxIYyx.rk65hUiMpkPdjk.U4p5agERwIMg9Z5y', 'luisina@gmail.com', '2023-06-29 12:56:44', 'Se tocar la  guitarra y el piano. Tengo conocimientos básicos en teoría musical.'),
+(2, 'malena', '$2y$10$N.x3n3MCLLznmMuSyo9m9uGazDWqfkPcaMuFbFPXnCobaJxp210Qu', 'malena@gmail.com', '2023-06-29 12:57:00', 'Se programar en python. Quiero aprender a gestionar bases de datos.'),
+(3, 'lucas', '$2y$10$mSKvdqUApUo5N./f2CP6k.WRRONuToc2SqJYV5zvnmBFGCY61sWMe', 'lucas@gmail.com', '2023-06-29 12:57:10', 'Amo tejer, puedo enseñar a cualquier interesado.'),
+(5, 'locati', '$2y$10$KdhWvV9kAiyOvjj11FqUB.YxEfcPc8kPty/6ZYZM4DwMRFcBGdRQ.', 'locati@gmail.com', '2023-06-29 12:57:34', 'Recientemente aprendí a conducir.'),
+(19, 'lanadelrey', '$2y$10$I7D7eSb/ktddxjWdsBZsBu3UFSTpIOTOBzCyIT8ZAbg3SzrUNUoyS', 'lanadelrey@gmail.com', '2023-06-29 12:58:25', 'Se jugar al fútbol, saltar la soga, correr maratones, y escribir en morse.'),
+(20, 'kurtcobain', '$2y$10$SVOC0YhOtTT.KbULnaT92ufexUukyI5KfHowtzPWC109sUwOuKrua', 'kurtcobain@gmail.com', '2023-06-29 12:58:39', 'Se lengua de señas'),
+(21, 'billiejoe', '$2y$10$HUoNnIJYUneM5ZfWYMYNFuBL5rfZZwMs5b.kYMiqP5123Gm4fUnzS', 'billiejoe@gmail.com', '2023-06-29 12:58:53', 'Me encanta leer. Se mucho a cerca de literatura clásica.'),
+(22, 'pizarnik', '$2y$10$iE/6NnL2FrsaD2vS1K6tauROgcn10arAAwMk6Csz4AwhuEBtMbfZG', 'pizarnik@gmail.com', '2023-06-29 12:59:53', 'Soy carpintera'),
+(23, 'Luis Campo', '$2y$10$4CCWuHWHc1DxCIL1UoSjYuoIROAo4CZrJb21oKFhxM0FOaWM8AV96', 'benji@gmail.com', '2023-06-29 14:44:35', 'Tengo un doctorado en matemática, se mucho de física tambien.'),
+(27, 'eiacovino', '$2y$10$L.lZqWH6ArkDCexLh42yjezS0hu/G0wQe9DLTmyFMGraUbSMctICG', 'eiacovino@escuelasproa.edu.ar', '2023-06-30 15:42:18', 'Se nadar. Me gusta diseñar tambien.'),
+(28, 'anabel', '$2y$10$EcNbR7avDrMga5RYgiCgRucjPcouZiF54Ly7bGah1YQSIhsvuu9iC', 'ab@gmail.com', '2023-06-30 15:59:44', '');
 
 --
 -- Índices para tablas volcadas
@@ -724,7 +723,7 @@ ALTER TABLE `areas`
 -- AUTO_INCREMENT de la tabla `coincidencia`
 --
 ALTER TABLE `coincidencia`
-  MODIFY `ID_COINCIDENCIA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `ID_COINCIDENCIA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `habilidades`
@@ -736,7 +735,7 @@ ALTER TABLE `habilidades`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
