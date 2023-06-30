@@ -369,6 +369,22 @@ text-align: center;
         height: 10vh;
 }
 
+#matches
+{
+    width: 75%;
+    display: flex;
+    max-width: 90%;
+}
+.match
+{
+        background-color: #ffffff4f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+    font-family: 'Inter', arial;
+    border-radius: 3%;
+}
 footer
 {
     text-align: center;

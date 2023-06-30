@@ -75,18 +75,12 @@ if($_POST['num'])
 		if($mine=='a')
 		{
 			$sql="UPDATE coincidencia SET MATCHA='$answer' WHERE ID_A='$id_a' AND ID_B='$id_b'";
-			if($answer==1 && $row['MATCHB']==1)
-			{
-				echo "MATCH!";
-			}
+
 		}
 		if($mine=='b')
 		{
 			$sql="UPDATE coincidencia SET MATCHB='$answer' WHERE ID_A='$id_a' AND ID_B='$id_b'";
-			if($answer==1 && $row['MATCHA']==1)
-			{
-				echo "MATCH!";
-			}
+
 		}
 		$query=mysqli_query($con,$sql);
 	}
@@ -121,7 +115,6 @@ if ($result=mysqli_query($con,$sql))
 			{
 				$i=$i+1;
 			}
-			echo "$i";
 		}
 }
 
@@ -155,7 +148,7 @@ if ($result=mysqli_query($con,$sql))
 	<header id="main_header">
 		<img src="imgs/logo (2).png" id="logo" onclick="window.open('index.html', '_self')">
 		<div id="group_of_buttons">
-			<button class="bttn_header">
+			<button class="bttn_header" onclick="window.open('messages.php', '_self')">
 				<img src="imgs/icon1.png" class="icon_header">
 			</button>
 			<button class="bttn_header" onclick="window.open('actualizar.php', '_self')">
