@@ -22,12 +22,12 @@
 <body>
 	<header id="main_header">
 		<img src="imgs/logo (2).png" id="logo" onclick="window.open('index.html', '_self')">
-		<div id="group_of_buttons" style="visibility: hidden;">
-			<button class="bttn_header">
+		<div id="group_of_buttons" >
+			<button class="bttn_header" style="visibility: hidden;">
 				<img src="imgs/icon1.png" class="icon_header">
 			</button>
-			<button class="bttn_header" onclick="window.open('actualizar.php', '_self')">
-				<img src="imgs/icon2.png" class="icon_header">
+			<button class="bttn_header" onclick="window.open('how_to.html', '_blank')" style="filter: invert(100%);">
+				<img src="imgs/icon3.png" class="icon_header">
 			</button>
 		</div>
 	</header> 
@@ -47,6 +47,8 @@
 					<div class="col">
 						<label for="GET-clave">Contraseña</label>
 						<input id="GET-clave" type="password" name="user-pass">
+						<label for="GET-clavecon">Confirmar contraseña</label>
+						<input id="GET-clavecon" type="password" name="user-pass-con">
 					</div>
 				</div>
 				<input id="submit_li" type="submit" name="signup-btn" class="btn">

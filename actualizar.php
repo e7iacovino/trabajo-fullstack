@@ -41,7 +41,7 @@ if($id == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
     <header id="main_header">
         <img src="imgs/logo (2).png" id="logo" onclick="window.open('index.html', '_self')">
         <div id="group_of_buttons">
-            <button class="bttn_header">
+            <button class="bttn_header" onclick="window.open('messages.php', '_self')">
                 <img src="imgs/icon1.png" class="icon_header">
             </button>
             <button class="bttn_header" onclick="window.open('actualizar.php', '_self')">
@@ -58,9 +58,9 @@ if($id == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
                         <input type="text" class="form-control mb-3" name="user-email" placeholder="E-mail" value="<?php echo $row['email']  ?>">
                         <input type="text" class="form-control mb-3" name="user-info" placeholder="Descripción y habilidades" value="<?php echo $row['habilidades']  ?>">
                         <input type="password" class="form-control mb-3" name="user-pass" placeholder="Contraseña" value="">
-                    <input type="submit" class="btn btn-primary btn-block" value="Actualizar">
-                    <input type="submit" class="btn btn-primary btn-block" value="Cerrar Sesión" name="close-session">
-                    <input type="submit" class="btn btn-primary btn-block" value="Eliminar cuenta" name="delete">
+                    <input type="submit" class="btn-up" value="Actualizar">
+                    <input type="submit" class="btn-up" value="Cerrar Sesión" name="close-session">
+                    <input type="submit" class="btn-up" value="Eliminar cuenta" name="delete">
                     
             </form>
         </div>      

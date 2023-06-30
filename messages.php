@@ -10,7 +10,7 @@
 	<meta name="author" content="Emiliano Iacovino, Luisina Lavayen">
 	<meta name="robots" content="index">
 	<link rel="icon" href="imgs/p3.ico">
-	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+	<link href="css/estilo.css?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -73,11 +73,11 @@
 							$row=mysqli_fetch_array($result);
 							echo
 							"
-								<div class='match' style='background-color: #ffffff4f;display: flex;align-items: center;justify-content: flex-start;padding: 2%;margin-bottom: 2%;font-family: Inter, arial;-moz-border-radius: 7px;-webkit-border-radius: 7px;'>
-									<img src='imgs/icon2.png' style='width: 6vh; margin-right: 2%;'>
-									Coincidencia con: $row[1] <br>
+								<div class='match' style='background-color: #ffffff4f;display: flex;align-items: center;justify-content: flex-start;padding: 2%;margin-bottom: 2%;font-family: Poppins, arial;-moz-border-radius: 7px;-webkit-border-radius: 7px;  animation: appear 1s;'>
+									<img src='imgs/pf.png' style='width: 6vh; margin-right: 2%;filter: invert(100%);'>
+									<b>Coincidencia con: $row[1] <br>
 									Información: $row[5] <br>
-									Correo electrónico: $row[3]
+									Correo electrónico: $row[3]</b>
 								</div>
 							";
 							$i=$i+1;

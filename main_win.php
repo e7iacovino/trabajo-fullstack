@@ -96,10 +96,13 @@ else
 
 $sql="SELECT * FROM users ORDER BY id ASC";
 $analizados=0;
-
+$numOfFound=$_POST['numOfFound'];
 if ($result=mysqli_query($con,$sql))
 {
 	$numUsers=mysqli_num_rows($result);
+	echo "numoffound=$numOfFound";
+	if ($numOfFound<$numUsers-1) 
+	{
 		$found=FALSE;
 		while($found==FALSE)
 		{
@@ -108,14 +111,19 @@ if ($result=mysqli_query($con,$sql))
 			$row=mysqli_fetch_array($result);
 			if ($row==TRUE and $i!=$id)
 			{
-				$found=TRUE;
+				$found=TRUE; $numOfFound=$numOfFound+1;
 				$analizados=$analizados+1;
 			}
 			else
 			{
 				$i=$i+1;
 			}
-		}
+		}	
+	}
+	else
+	{
+		header('location: index.html');
+	}
 }
 
 
@@ -163,21 +171,22 @@ if ($result=mysqli_query($con,$sql))
 				<p id="perfil_nombre"><?php echo $row['username'] ?></p>
 				<p id="perfil_habilidades"><?php echo $row['habilidades'] ?></p>
 			</div>
-			<input type="number" name="num" value="<?php echo $i ?>" style="visibility: hidden;">
+			<input type="number" name="num" value="<?php echo $i ?>" style="display: none;">
+			<input type="numOfFound" name="numOfFound" value="<?php echo $numOfFound ?>" style="display: none;">
 			<div id="perfil_bttns">
-				<input type="submit" name="match-false" class="bttn_perfil" id="btn1">
-				<input type="submit" name="match-true" class="bttn_perfil" id="btn2">
-				<!-- <button class="bttn_perfil">
+	
+				<button class="bttn_perfil" onclick="document.getElementById('btn1').click()">
 					<img src="imgs/quitar.png" class="icon_perfil">
 				</button>
-				<button class="bttn_perfil">
+				<button class="bttn_perfil" onclick="document.getElementById('btn2').click()">
 					<img src="imgs/agregar.png" class="icon_perfil">
-				</button> -->
+				</button>
 			</div>
 		</form>
 	</section>
 
-
+	<input type="submit" name="match-false" id="btn1" style="display:none">
+	<input type="submit" name="match-true" id="btn2" style="display:none">
 	<!-- <footer>
 		©2023 Emiliano Iacovino & Luisina Lavayen. <br> Todos los derechos reservados.
 		<a href="https://cafecito.app/e-iacovino">Compranos un café <3</a> 

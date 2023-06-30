@@ -17,8 +17,29 @@
     100%{opacity: 100%;transform:translateY(0vw);}
 }
 
+@keyframes moveup
+{
+    0%{opacity: 0%; transform:translateY(5vw);}
+    100%{opacity: 100%;transform:translateY(0vw);}
+}
 
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
 
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
 body
 {
 
@@ -138,7 +159,7 @@ h1
     color: white;
     padding-inline: 4%;
     padding-block: 1%;
-    border-radius: 7%;
+    -moz-border-radius: 7px;-webkit-border-radius: 7px;
     border: 0px solid transparent;
 }
 
@@ -159,7 +180,7 @@ h1
     justify-content: center;
     padding: 5%;
     font-family: Inter, arial;
-        border-radius: 3%;
+        -moz-border-radius: 7px;-webkit-border-radius: 7px;
 }
 
 #sign_in_form
@@ -170,6 +191,16 @@ h1
     justify-content: center;
 }
 
+#btn1
+{
+    background-image: url("imgs/quitar.png");
+    max-height: 7vh;
+    aspect-ratio: 1/1 !important;
+    border: 0px transparent solid !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 input
 {
    margin-bottom: 4vh;
@@ -205,7 +236,7 @@ input
         background-color: #164A41;
     color: white;
     border: 0px solid transparent;
-    border-radius: 3%;
+    -moz-border-radius: 7px;-webkit-border-radius: 7px;
         width: 100%;
 }
 label
@@ -220,10 +251,22 @@ label
         background-color: #164A41;
     color: white;
     border: 0px solid transparent;
-    border-radius: 3%;
+    -moz-border-radius: 7px;-webkit-border-radius: 7px;
         width: 100%;
 }
 
+.btn-up
+{
+    padding-right: 3%;padding-left: 3%;
+    padding-bottom: 1%; padding-top: 1%;
+    font-family: Inter, arial;   
+        font-size: 1.65vh; 
+        background-color: #164A41;
+    color: white;
+    border: 0px solid transparent;
+    -moz-border-radius: 7px;-webkit-border-radius: 7px;
+        width: auto;
+}
 #submit_li_0
 {
     padding: 3%;
@@ -233,10 +276,13 @@ label
         background-color: #164A41;
     color: white;
     border: 0px solid transparent;
-    border-radius: 3%;
+    -moz-border-radius: 7px;-webkit-border-radius: 7px;
         width: 100%;
 }
-
+video
+{
+    height: 75vh;
+}
 #title_form
 {
 text-align: center;
@@ -262,7 +308,7 @@ text-align: center;
     background-color: #164A41;
     color: white;
     border: 0px solid transparent;
-    border-radius: 3%;
+    -moz-border-radius: 7px;-webkit-border-radius: 7px;
     width: 100%;
 }
 #home_sign_up
@@ -277,6 +323,7 @@ text-align: center;
     align-items: center;
     bottom: 0;
     justify-content: center;
+    animation: moveup 1s;
 }
 
 #inputs
@@ -294,12 +341,13 @@ text-align: center;
     flex-direction: column;
     padding: 5%;
     min-width: 40%;
-    min-height: 40%;
+    min-height: 25%;
     max-height: 65%;
     background: #ffffff4f;
-    border-radius: 5%;
+    -moz-border-radius: 7px;-webkit-border-radius: 7px;
     text-align: center;
-    font-family: Inter, arial;
+    font-family: "Inter", arial;
+    animation: shake 1s;
     
 }
 
@@ -321,6 +369,10 @@ text-align: center;
     align-items: center;
 }
 
+#perfil_habilidades
+{
+    width: 60%;
+}
 #perfil_bttns
 {
     display: flex;
@@ -373,6 +425,7 @@ text-align: center;
 {
     width: 75%;
     display: flex;
+        flex-direction: column;
     max-width: 90%;
 }
 .match
@@ -383,7 +436,7 @@ text-align: center;
     justify-content: center;
     padding: 5%;
     font-family: 'Inter', arial;
-    border-radius: 3%;
+    -moz-border-radius: 7px;-webkit-border-radius: 7px;
 }
 footer
 {
